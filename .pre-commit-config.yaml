@@ -2,7 +2,7 @@
 default_language_version:
     python: python3
 exclude: (^docs/(conf.py|_ext/))
-default_stages: [commit,push]
+default_stages: [pre-commit,pre-push]
 fail_fast: false
 
 ci:
@@ -17,7 +17,7 @@ repos:
     -   id: pycln
         args: [--config=pyproject.toml]
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.5
+    rev: v0.8.6
     hooks:
     -   id: ruff
         args:
@@ -37,7 +37,7 @@ repos:
 #        ]
 #        exclude: ^(docs|geoapps-assets)/
 -   repo: https://github.com/codingjoe/relint
-    rev: 3.1.1
+    rev: 3.3.1
     hooks:
     -   id: relint
         args: [-W]  # to fail on warnings
@@ -65,7 +65,7 @@ repos:
         exclude: (-lock\.ya?ml|\benvironments/.*\.ya?ml|\.ipynb|^THIRD_PARTY_SOFTWARE\.rst)$
         entry: codespell -I .codespellignore
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
     -   id: trailing-whitespace
         exclude: \.mdj$
